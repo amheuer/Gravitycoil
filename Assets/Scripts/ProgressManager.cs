@@ -18,6 +18,9 @@ public class ProgressManager : MonoBehaviour
     public float savevolume;
     public int savequalityIndex;
 
+    [DllImport("__Internal")]
+    private static extern void StartGameEvent();
+
     private void Awake()
     {
         if (Instance != null)
@@ -30,6 +33,10 @@ public class ProgressManager : MonoBehaviour
         LoadPoint();
     }
 
+    public void Start()
+    {
+        StartGameEvent();
+    }
 
     public void SetVolume(float volume)
     {

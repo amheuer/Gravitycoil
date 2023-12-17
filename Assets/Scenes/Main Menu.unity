@@ -2310,3 +2310,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780543907}
   m_CullTransparentMesh: 1
+--- !u!1 &1809987127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1809987129}
+  - component: {fileID: 1809987128}
+  m_Layer: 0
+  m_Name: StartupScripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1809987128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809987127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cf50a9aa437d14aa5693162976c969, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domains:
+  - https://www.coolmathgames.com
+  - www.coolmathgames.com
+  - https://edit.coolmathgames.com
+  - edit.coolmathgames.com
+  - www.stage.coolmathgames.com
+  - stage-edit.coolmathgames.com
+  - https://dev.coolmathgames.com
+  - https://www.stage.coolmathgames.com
+  - https://stage-edit.coolmathgames.com
+  - https://dev.coolmathgames.com
+  - https://dev-edit.coolmathgames.com
+--- !u!4 &1809987129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809987127}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.975615, y: 0.35434306, z: -0.44570637}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
