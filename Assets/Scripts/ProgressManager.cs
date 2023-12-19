@@ -33,11 +33,6 @@ public class ProgressManager : MonoBehaviour
         LoadPoint();
     }
 
-    public void Start()
-    {
-        StartGameEvent();
-    }
-
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("Volume", volume);
@@ -61,8 +56,14 @@ public class ProgressManager : MonoBehaviour
             furthestPoint = SceneManager.GetActiveScene().buildIndex;
             ProgressManager.Instance.SavePoint();
         }
-
-        SetVolume(savevolume);
+        if(CoolMathAds.instance.isMuted == false)
+        {
+            SetVolume(savevolume);
+        }
+        else
+        {
+            SetVolume(0);
+        }
         SetQuality(savequalityIndex);
 
     }

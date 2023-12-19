@@ -2,6 +2,8 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 public class SiteLock : MonoBehaviour
 {
+    public static SiteLock Instance;
+    public bool hasChecked;
     public string[] domains = new string[] {
        "https://www.coolmathgames.com",
        "www.coolmathgames.com",
@@ -16,11 +18,29 @@ public class SiteLock : MonoBehaviour
        "https://dev-edit.coolmathgames.com"
    };
     [DllImport("__Internal")]
+
+
     private static extern void RedirectTo(string url);
     // Check right away if the domain is valid
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
-        CheckDomains();
+        if(hasChecked != true)
+        {
+            CheckDomains();
+            hasChecked = true;
+        }
     }
     private void CheckDomains()
     {

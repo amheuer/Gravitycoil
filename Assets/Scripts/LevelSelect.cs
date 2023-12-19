@@ -6,12 +6,16 @@ using static UnityEngine.Rendering.DebugUI;
 using static UnityEngine.UI.Selectable;
 using UnityEngine.UI;
 using UnityEditor.Rendering;
+using System.Runtime.InteropServices;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 public class LevelSelect : MonoBehaviour
 {
+    [DllImport("__Internal")]
+    private static extern void StartGameEvent();
+
     public Animator transition;
     public int destination;
 
@@ -43,6 +47,8 @@ public class LevelSelect : MonoBehaviour
         if (ProgressManager.Instance.furthestPoint >= destination || destination == 6) 
         {
             transition.SetTrigger("Start");
+
+            StartGameEvent();
 
             yield return new WaitForSeconds(.5f);
 

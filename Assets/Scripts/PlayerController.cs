@@ -1,16 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
+
 
 public class PlayerController : MonoBehaviour
 {
+    [DllImport("__Internal")]
+    private static extern void StartLevelEvent(int level);
+
     public GameObject player;
     public Rigidbody2D playerRB;
     public GameObject bulletPrefab;
     public Transform firePoint;
     public GameObject shootLight;
+
+    private int levelNum;
 
     public Camera cam;
 
@@ -31,6 +39,12 @@ public class PlayerController : MonoBehaviour
 
     public TMP_Text clipNum;
 
+    private void Start()
+    {
+        int.TryParse(SceneManager.GetActiveScene().name, out levelNum);
+        StartLevelEvent(levelNum);
+
+    }
     void Update()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
