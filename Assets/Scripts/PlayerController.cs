@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 {
     [DllImport("__Internal")]
     private static extern void StartLevelEvent(int level);
+    [DllImport("__Internal")]
+    private static extern void triggerAdBreak();
 
     public GameObject player;
     public Rigidbody2D playerRB;
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         int.TryParse(SceneManager.GetActiveScene().name, out levelNum);
         StartLevelEvent(levelNum);
+        triggerAdBreak();
 
     }
     void Update()
